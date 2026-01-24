@@ -105,7 +105,7 @@ The installation can be done manually as follows.
 4.  **Download and install `src.zip` inside `omx/`**
 
     ```bash
-    git clone <github_src_repository_link> src
+    git clone https://github.com/cake-lab/AR-OMX.git src
     ```
     
     **or**
