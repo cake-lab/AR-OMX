@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>omx_position_control</name>
+  <version>0.1.0</version>
+  <description>A package for real-time robotic arm control via motion capture.</description>
+  <maintainer email="harshchhajed30@gmail.com">Harsh Chhajed</maintainer>
+  <license>Apache-2.0</license>
+
+  <!-- The build tool is now ament_python -->
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <!-- Dependencies needed at runtime (when your nodes execute) -->
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>my_service_package</exec_depend>
+  <exec_depend>python3-scipy</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <!-- The build type is now ament_python -->
+    <build_type>ament_python</build_type>
+  </export>
+</package>
+

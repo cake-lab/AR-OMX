@@ -1,0 +1,11 @@
+float32 theta1_dot
+float32 theta2_dot
+float32 theta3_dot
+float32 theta4_dot
+---
+float32 v_x
+float32 v_y
+float32 v_z
+float32 omega_x
+float32 omega_y
+float32 omega_z

@@ -1,0 +1,7 @@
+geometry_msgs/Point[] position  # Desired end effector position (x, y, z)
+geometry_msgs/Quaternion[] orientation  # Desired end effector orientation (qx, qy, qz, qw)
+float64[] claw
+
+---
+float64[] joint_positions  # Joint positions required to reach the desired pose
+bool success  # True if IK calculation was successful
