@@ -63,46 +63,78 @@ The installation can be done manually as follows.
     ```
 
 2.  **Update your ~/.bashrc environment with the shortcuts below for easy use (Optional but recommended)**
-    
-    ```bash
-    nano ~/.bashrc
-    ```
 
-    **Add these lines at eof in your bashrc**
+    **Method 1 (Recommended):**  
+    Copy and paste this entire block into your terminal once:
 
     ```bash
-    # Colcon argcomplete
+    cat << 'EOF' >> ~/.bashrc
+
+    # --- OMX Workspace (OpenManipulator-X) ---
+    # Ensure colcon autocomplete is active (if not already sourced)
     source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
-    
-    # OMX workspace
     source ~/omx/install/setup.bash
-    # Aliases
+
+    # --- OMX Aliases ---
     alias srcs='source install/setup.bash'
     alias om='ros2 run open_manipulator_x_controller open_manipulator_x_controller'
     alias ho='ros2 run omx_position_control basic_robot_control'
     alias hoo='ros2 run omx_position_control basic_robot_control2'
     alias lau='ros2 launch omx_position_control position_control.launch.py'
+    alias el='ros2 launch omx_position_control evaluation.launch.py'
+
+    # Camera & Topics
     alias cam='python3 apture.py position'
     alias tp='ros2 topic echo /target_pose'
     alias ap='ros2 topic echo /actual_pose'
-    alias el='ros2 launch omx_position_control evaluation.launch.py'
+
+    # Web Bridges
     alias web='ros2 run omx_position_control websocket_bridge_node'
     alias web2='ros2 run omx_position_control websocket_bridge_node2'
+    EOF
     ```
-    
+    **Method 2:**  
+    ```bash
+    # Add a spacer for readability
+    echo "" >> ~/.bashrc
+
+    # 1. Setup Workspace and Colcon
+    echo "# --- OMX Workspace (OpenManipulator-X) ---" >> ~/.bashrc
+    echo "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> ~/.bashrc
+    echo "source ~/omx/install/setup.bash" >> ~/.bashrc
+
+    # 2. Add Aliases
+    echo "# --- OMX Aliases ---" >> ~/.bashrc
+    echo "alias srcs='source install/setup.bash'" >> ~/.bashrc
+    echo "alias om='ros2 run open_manipulator_x_controller open_manipulator_x_controller'" >> ~/.bashrc
+    echo "alias ho='ros2 run omx_position_control basic_robot_control'" >> ~/.bashrc
+    echo "alias hoo='ros2 run omx_position_control basic_robot_control2'" >> ~/.bashrc
+    echo "alias lau='ros2 launch omx_position_control position_control.launch.py'" >> ~/.bashrc
+    echo "alias el='ros2 launch omx_position_control evaluation.launch.py'" >> ~/.bashrc
+
+    # 3. Camera & Topic Aliases
+    echo "alias cam='python3 apture.py position'" >> ~/.bashrc
+    echo "alias tp='ros2 topic echo /target_pose'" >> ~/.bashrc
+    echo "alias ap='ros2 topic echo /actual_pose'" >> ~/.bashrc
+
+    # 4. Web Bridge Aliases
+    echo "alias web='ros2 run omx_position_control websocket_bridge_node'" >> ~/.bashrc
+    echo "alias web2='ros2 run omx_position_control websocket_bridge_node2'" >> ~/.bashrc
+    ```
+
     **Save and Exit.**
     ```bash
     source ~/.bashrc
     ```
 
-3.  **Create a workspace named `omx`**
+4.  **Create a workspace named `omx`**
 
     ```bash
     mkdir -p ~/omx
     cd ~/omx
     ```
 
-4.  **Download and install `src.zip` inside `omx/`**
+5.  **Download and install `src.zip` inside `omx/`**
 
     ```bash
     git clone https://github.com/cake-lab/AR-OMX.git src
@@ -117,10 +149,10 @@ The installation can be done manually as follows.
 
     ```
 
-5.  **Build the workspace**
+6.  **Build the workspace**
 
     ```bash
-    colcon build --symlink-install
+    colcon build
     ```
 
 5.  **Source the setup files (add to `~/.bashrc`)**
